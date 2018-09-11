@@ -16,6 +16,7 @@ Public Module WebApiConfig
             defaults:=New With {.id = RouteParameter.Optional}
         )
 
+        'memastikan outputnya berupa json
         config.Formatters.Remove(config.Formatters.XmlFormatter)
     End Sub
 End Module
