@@ -28,15 +28,15 @@ Namespace Controllers
 
         End Function
 
-        <Route("api/Mahasiswa/GetByName")>
-        <HttpGet()>
-        Public Function GetByName(nama As String) As List(Of Mahasiswa)
-            Dim results = From mhs In lstMhs
-                          Where mhs.Nama = "Erick"
-                          Select mhs
+        '<Route("api/Mahasiswa/GetByName")>
+        '<HttpGet()>
+        'Public Function GetByName(nama As String) As List(Of Mahasiswa)
+        '    Dim results = From mhs In lstMhs
+        '                  Where mhs.Nama = "Erick"
+        '                  Select mhs
 
-            Return results
-        End Function
+        '    Return results
+        'End Function
 
         ' POST: api/Mahasiswa
         Public Sub PostValue(<FromBody()> ByVal value As String)
