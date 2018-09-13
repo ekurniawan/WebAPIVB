@@ -36,7 +36,7 @@ Public Class MahasiswaDAL
     End Sub
 
     Public Sub Delete(id As String) Implements ICrud(Of Mahasiswa).Delete
-        Using conn As New SqlConnection
+        Using conn As New SqlConnection(MyHelper.GetConnStr())
             Dim strSql = "delete from Mahasiswa where Nim=@Nim"
             Dim param = New With {.Nim = id}
             Try
