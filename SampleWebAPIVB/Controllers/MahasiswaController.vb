@@ -27,14 +27,24 @@ Namespace Controllers
         End Function
 
         ' POST: api/Mahasiswa
-        Public Sub PostValue(<FromBody()> ByVal value As String)
-
-        End Sub
+        Public Function PostValue(mhs As Mahasiswa) As IHttpActionResult
+            Try
+                mhsDAL.Create(mhs)
+                Return Ok($"Data mahasiswa {mhs.Nama} berhasil ditambahkan")
+            Catch ex As Exception
+                Return BadRequest($"Kesalahan:{ex.Message}")
+            End Try
+        End Function
 
         ' PUT: api/Mahasiswa/5
-        Public Sub PutValue(ByVal id As Integer, <FromBody()> ByVal value As String)
-
-        End Sub
+        Public Function PutValue(mhs As Mahasiswa) As IHttpActionResult
+            Try
+                mhsDAL.Update(mhs)
+                Return Ok($"Data mahasiswa {mhs.Nama} berhasil diupdate")
+            Catch ex As Exception
+                Return BadRequest($"Kesalahan:{ex.Message}")
+            End Try
+        End Function
 
         ' DELETE: api/Mahasiswa/5
         Public Sub DeleteValue(ByVal id As Integer)
