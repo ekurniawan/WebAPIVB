@@ -93,4 +93,22 @@ Public Class MahasiswaDAL
             Return results
         End Using
     End Function
+
+    Public Sub BulkInsertData(lstData As List(Of Mahasiswa))
+        Using conn As New SqlConnection(MyHelper.GetConnStr())
+            Dim dt As New DataTable
+            dt.Columns.Add("Nim")
+            dt.Columns.Add("Nama")
+            dt.Columns.Add("IPK")
+
+            For Each mhs In lstData
+                dt.Rows.Add(mhs.Nim, mhs.Nama, mhs.IPK)
+            Next
+
+            Using sqlBulk As New SqlBulkCopy(conn)
+                sqlBulk.DestinationTableName = "Mahasiswa"
+                sqlBulk.WriteToServer(dt)
+            End Using
+        End Using
+    End Sub
 End Class

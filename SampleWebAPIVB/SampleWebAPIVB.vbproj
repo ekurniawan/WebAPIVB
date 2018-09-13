@@ -225,12 +225,14 @@
     <Compile Include="DAL\MahasiswaDAL.vb" />
     <Compile Include="DAL\MyHelper.vb" />
     <Compile Include="DAL\PengambilanDAL.vb" />
+    <Compile Include="DAL\TransaksiDAL.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Mahasiswa.vb" />
     <Compile Include="Models\Matakuliah.vb" />
     <Compile Include="Models\Pengambilan.vb" />
+    <Compile Include="Models\Transaksi.vb" />
     <Compile Include="Models\ViewPengambilanLengkap.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

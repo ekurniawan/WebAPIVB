@@ -5,38 +5,26 @@ Namespace Controllers
     Public Class MahasiswaController
         Inherits ApiController
 
-        Private lstMhs As New List(Of Mahasiswa) From {
-            New Mahasiswa With {
-            .Nim = "88888", .Nama = "Erick", .IPK = 3.5},
-            New Mahasiswa With {
-            .Nim = "99999", .Nama = "Budi", .IPK = 3.2}}
+        Private mhsDAL As New MahasiswaDAL
 
         ' GET: api/Mahasiswa
         <HttpGet()>
         Public Function GetValues() As IEnumerable(Of Mahasiswa)
-            Return lstMhs
+            Return mhsDAL.GetAll()
         End Function
 
         ' GET: api/Mahasiswa/5
         <HttpGet()>
         Public Function GetValue(id As String) As Mahasiswa
-            Dim result = (From mhs In lstMhs
-                          Where mhs.Nim = id
-                          Select mhs).SingleOrDefault()
-
-            Return result
-
+            Return mhsDAL.GetById(id)
         End Function
 
-        '<Route("api/Mahasiswa/GetByName")>
-        '<HttpGet()>
-        'Public Function GetByName(nama As String) As List(Of Mahasiswa)
-        '    Dim results = From mhs In lstMhs
-        '                  Where mhs.Nama = "Erick"
-        '                  Select mhs
 
-        '    Return results
-        'End Function
+        <HttpGet()>
+        <Route("api/Mahasiswa/GetByName")>
+        Public Function GetByName(nama As String) As IEnumerable(Of Mahasiswa)
+            Return mhsDAL.GetByName(nama)
+        End Function
 
         ' POST: api/Mahasiswa
         Public Sub PostValue(<FromBody()> ByVal value As String)
