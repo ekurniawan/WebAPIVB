@@ -1,6 +1,7 @@
 ﻿Imports SampleWebAPIVB
 Imports System.Data.SqlClient
 Imports Dapper
+Imports System.Threading.Tasks
 
 Public Class MahasiswaDAL
     Implements ICrud(Of Mahasiswa)
@@ -90,6 +91,17 @@ Public Class MahasiswaDAL
                           where Nama like @Nama"
             Dim param = New With {.Nama = $"%{nama}%"}
             Dim results = conn.Query(Of Mahasiswa)(strSql, param)
+
+            Return results
+        End Using
+    End Function
+
+    Public Async Function GetByNameAsync(nama As String) As Task(Of IEnumerable(Of Mahasiswa))
+        Using conn As New SqlConnection(MyHelper.GetConnStr())
+            Dim strSql = "select * from Mahasiswa
+                          where Nama like @Nama"
+            Dim param = New With {.Nama = $"%{nama}%"}
+            Dim results = Await conn.QueryAsync(Of Mahasiswa)(strSql, param)
             Return results
         End Using
     End Function
