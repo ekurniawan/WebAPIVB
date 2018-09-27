@@ -57,6 +57,9 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp, Version=106.4.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.4.2\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -187,6 +190,7 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\MahasiswaController.vb" />
+    <Compile Include="Controllers\MahasiswaRestsharpController.vb" />
     <Compile Include="Controllers\SaveExcelSampleController.vb" />
     <Compile Include="DAL\MahasiswaDAL.vb" />
     <Compile Include="DAL\MyHelper.vb" />
@@ -211,6 +215,7 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Services\MahasiswaServices.vb" />
+    <Compile Include="Services\MahasiswaServicesRestsharp.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -259,6 +264,11 @@
     <Content Include="Views\Mahasiswa\Create.vbhtml" />
     <Content Include="Views\Mahasiswa\Edit.vbhtml" />
     <Content Include="Views\Mahasiswa\Delete.vbhtml" />
+    <Content Include="Views\MahasiswaRestsharp\Index.vbhtml" />
+    <Content Include="Views\MahasiswaRestsharp\Details.vbhtml" />
+    <Content Include="Views\MahasiswaRestsharp\Create.vbhtml" />
+    <Content Include="Views\MahasiswaRestsharp\Edit.vbhtml" />
+    <Content Include="Views\MahasiswaRestsharp\Delete.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
